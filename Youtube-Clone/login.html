@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://www.youtube.com/s/desktop/2ecd39d3/img/favicon_48x48.png" sizes="48x48">
+    <link rel="stylesheet" href="nav.css">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+      <script src="https://kit.fontawesome.com/9878c95b8d.js" crossorigin="anonymous"></script>
+
+    <title>Sinup</title>
+    <style>
+      body{
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      }
+      #container{
+        position: absolute;
+        top: 100px;
+        left: 27%;
+        display: flex
+      }
+      #form{
+        width: 350px;
+      }
+      #form>input, #login>input{
+        width: 280px;
+        height: 35px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        outline: none;
+        /* border: none; */
+        border: 1px solid grey;
+      }
+      #submit:hover, #loginbtn:hover{
+        background-color: teal;
+        color: white;
+        border: 1px solid white;
+      }
+      #login{
+        width: 350px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="nav"></div>
+    <div id="container">
+      <form id="form" action="">
+        <h2>Create your Account Here</h2>
+        <input id="name" type="text" placeholder="Enter your name" />
+        <input type="text" id="username" placeholder="Enter unique username" />
+        <input type="password" id="password" placeholder="Create Password" />
+        <input type="password" placeholder="Renter your password" />
+        <input
+          type="number"
+          id="mobile"
+          placeholder="Enter your mobile number"
+        />
+        <input type="email" id="email" placeholder="Enter your email" />
+        <input id="submit" type="submit" value="Create Account" />
+      </form>
+
+      <form id="login" >
+        <h2>Already have an account <br>Login Here</h2>
+        <input type="text" id="loginUser" placeholder="Enter your username">
+        <input type="password" id="loginPass" placeholder="Enter password here">
+        <input type="submit" id="loginbtn" value="Login">
+      </form>
+      
+    </div>
+  </body>
+</html>
+
+<script type="module">
+   import nav from "./nav.js";
+    document.getElementById("nav").innerHTML = nav();
+
+  document.querySelector("#form").addEventListener("submit", register);
+  async function register() {
+    event.preventDefault();
+    console.log("Hello");
+
+    let user_data = {
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      password: document.getElementById("password").value,
+      username: document.getElementById("username").value,
+      mobile: document.getElementById("mobile").value,
+      description: "dummy"
+    };
+
+    user_data = JSON.stringify(user_data);
+    console.log(user_data)
+
+    let register_api = `https://masai-api-mocker.herokuapp.com/auth/register`;
+
+    let response = await fetch(register_api, {
+      method: "POST",
+      body: user_data,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    let data = await response.json();
+    console.log("data", data);
+    alert("Registration Successfull")
+  }
+
+
+  // login things
+
+
+
+  document.querySelector("#login").addEventListener("submit", Login);
+  async function Login(){
+    event.preventDefault()
+        let login_data = {
+            username: document.getElementById("loginUser").value,
+            password: document.getElementById("loginPass").value
+        }
+
+        login_data = JSON.stringify(login_data);
+
+        //link 
+        let login_api = `https://masai-api-mocker.herokuapp.com/auth/login`
+
+        let response = await fetch(login_api, {
+            method: "POST",
+            body: login_data,
+            headers: {
+                "Content-type": "application/json"
+            }
+        });
+
+        let data = await response.json();
+        console.log(data)
+
+
+        let username = document.getElementById("loginUser").value;
+        getProfile(username, data.token)
+    }
+
+    async function getProfile(username, token){
+        let api = `https://masai-api-mocker.herokuapp.com/user/${username}`;
+
+        let response = await fetch(api, {
+            headers: {
+                "Content-type": "application/json",
+                "Authorization": `Bearer ${token}`,
+            },
+            
+        });
+
+        let data = await response.json();
+        let name = data.name.split(" ");
+        let final = name.shift()
+        localStorage.setItem("name", JSON.stringify(final));
+        document.getElementById("userName").textContent = final
+        console.log("user data", data)
+        alert("Login Successfull")
+    }
+</script>

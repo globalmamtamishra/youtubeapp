@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube Homepage</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <script src="https://kit.fontawesome.com/9878c95b8d.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="https://www.youtube.com/s/desktop/2ecd39d3/img/favicon_48x48.png" sizes="48x48">
+    <style>
+        body{
+            background-color: #f9f9f9;
+        }
+        .navbar{
+            width: 100%;
+            position: fixed;
+            left: 0;
+            top: 0;
+            /* height: 56px; */
+            background-color: white;
+            display: flex;
+            /* border: 1px solid teal; */
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            
+        }
+        #menulogo{
+            height: 40px;
+            width: 40px;
+            /* border: 1px solid red; */
+            margin: 8px 16px
+        }
+        .fa-bars{
+            size: 80px;
+            font-size: 24px;
+            margin: 8px 16px
+        }
+        .logodiv{
+            width: 120px;
+            height: 56px;
+            /* border: 1px solid red; */
+        }
+        #navlogo{
+            
+            width: 90px;
+            height: 56px;
+        }
+        .in{
+            font-size: 10px;
+            /* border: 1px solid red; */
+            margin-left: -30px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        .inputbox{
+            width: 728px;
+            height: 40px;
+            margin: 8px 16px 8px 56px;
+
+            /* border: 1px solid red; */
+            display: flex;
+
+        }
+        #search{
+            margin-left: 30px;
+            width: 559px;
+            height: 35px;
+        }
+        .sdiv{
+            width: 64px;
+            height: 39px;
+            background-color: #f8f8f8;
+            border: 1px solid black;
+            border-left: none;
+        }
+        .fa-search{
+            margin: 6px 0px 0px 20px;
+            font-size: 24px;
+        }
+        .micro{
+            width: 40px;
+            margin-left: 15px;
+            border-radius: 55%;
+            background-color: #f9f9f9;
+            /* border: 1px solid teal; */
+        }
+        .fa-microphone{
+            margin: 6px 0px 0px 12px;
+            font-size: 23px;
+        }
+        .box9{
+            background: black ;
+            border-radius: 55%;
+            margin: 16px 0px 8px 13%;
+            position: relative;
+            z-index: 1;
+        }
+        #box9{
+            position: absolute;
+            width: 24px;
+            z-index: -1;
+        }
+        .dot3{
+            margin: 16px 4%;
+        }
+        .fa-ellipsis-v{
+            font-size: 24px;
+        }
+        .userbox{
+            width: 100px;
+            height: 40px;
+            border: 1px solid #347ddc;
+            margin-top: 8px;
+            margin-left: -45px;
+            display: flex;
+        }
+        .userbox>p{
+            font-size: 14px;
+            color: #347ddc;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+        .userbox>i{
+            margin: 8px;
+            font-size: 24px;
+            color:#347ddc;
+        }
+        .leftDiv{
+            width: 70px;
+            height: 100%;
+            position: fixed;
+            top: 55px;
+            left: 0;
+            /* background-color: grey; */
+        }
+        .leftDiv{
+            display: grid;
+            background-color: white;
+            border: 1px solid transparent;
+            /* flex-wrap: wrap; */
+        }
+        .homediv{
+            margin-top: 20px;
+            width: 100%;
+            height: 60px;
+            display: grid;
+            /* background-color: orange; */
+            justify-content: center;
+            text-align: center;
+        }
+        .homediv:hover{
+            background-color: #f2f2f2;
+        }
+        .fa-home{
+            margin-top: 10px;
+            font-size: 24px;
+        }
+        .homediv>p{
+            font-size: 12px;
+            margin-top: 8px;
+        }
+        .fa-compass{
+            margin-top: 10px;
+            font-size: 24px;
+        }
+        #compass{
+            margin-top: 0px;
+            /* background-color: hotpink; */
+            /* margin-top: -308px; */
+        }
+        #lastdiv{
+            margin-top: 0px;
+            margin-bottom: 380px;
+        }
+        #temp{
+            position: relative;
+            top: 10%;
+            left: 7%;
+            /* background-color: salmon; */
+            height: 60px;
+            width: 93%;
+            margin-top: 80px;
+            z-index: -10;
+            display: grid;
+            grid-template-columns: repeat(4, 24%);
+            grid-gap: 1%;
+        }
+        #box{
+            /* width: 295px ; */
+            height: 260px;
+            /* background-color: teal; */
+            cursor: pointer;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        #poster{
+            width: 100%;
+            height: 65%;
+        }
+        #name{
+            position: relative;
+            top: 0px;
+            left: 7%;
+            width: 230px;
+            /* height: 40px; */
+            font-weight: 500;
+            font-size: 13px;
+            /* margin-top: 10px; */
+            /* border:  1px solid black; */
+        }
+        .dis{
+            display: flex;
+            /* border: 1px solid red; */
+            /* height: auto; */
+        }
+        #clogo{
+            position: relative;
+            top: 15px;
+            left: 10px;
+            width: 35px;
+            border-radius: 55%;
+            /* border: 1px solid red; */
+        }
+        .name{
+            font-size: 12px;
+        }
+        .cname{
+            margin-top: -10px;
+            color: rgb(175, 175, 175);
+        }
+        #sResult{
+            margin-top: -90px;
+            position: relative;
+            left: 250px;
+            right: 40%;
+            top: -20%;
+            width: 620px;
+            /* width: 100%; */
+            height: 350px;
+            /* border: 1px solid blue; */
+            background: rgba(255, 255, 255, 0.98);
+            font-size: 14px;
+            overflow-y: scroll;
+            overflow: none;
+            display: none;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        #stitle{
+        }
+    </style>
+</head>
+<body>
+    <div id="nav"></div>
+    <div class="navbar">
+
+        <div id="menulogo">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        
+
+
+        <div class="logodiv">
+            <img id="navlogo" src="https://www.gstatic.com/youtube/img/branding/youtubelogo/svg/youtubelogo.svg" alt="">
+        </div>
+
+        <p class="in">IN</p>
+
+        <div class="inputbox">
+            <input type="text" oninput="debounce(print, 800)" placeholder="Search" id="search">
+            <div class="sdiv">
+                <i id="search" onclick="searchmovies()" class="fas fa-search"></i>
+            </div>
+            <div class="micro">
+                <i class="fas fa-microphone"></i>
+            </div>
+        </div>
+
+        <div class="box9">
+            <img id="box9" src="https://cdn-icons-png.flaticon.com/512/80/80975.png" alt="">
+        </div>
+        
+        <div class="dot3">
+            <i class="fas fa-ellipsis-v"></i>
+        </div>
+
+        <div class="userbox">
+            <i class="far fa-user-circle"></i>
+            <p id="userName" >SIGN IN</p>
+        </div>
+        
+    </div>
+    <div id="temp">
+        </div> -->
+    </div>
+
+    <div id="sResult"></div>
+
+
+    <div class="leftDiv">
+        <div class="homediv">
+            <i class="fas fa-home"></i>
+            <p>Home</p>
+        </div>
+
+        <div class="homediv" id="compass">
+            <i class="far fa-compass"></i>
+            <p>Explore</p>
+        </div>
+
+        <div class="homediv" id="compass">
+            <span class="material-icons-outlined">
+                subscriptions
+                </span>
+                
+            <p>Subscription</p>
+        </div>
+
+        <div class="homediv" id="compass">
+            <span class="material-icons-outlined">video_library </span>
+            <p>Library</p>
+        </div>
+
+        <div class="homediv" id="lastdiv">
+            <span class="material-icons-outlined">history</span>
+            <p>History</p>
+        </div>
+        
+    </div>
+</body>
+</html>
+
+<script>
+    let api = "AIzaSyAnFwt8COt3edPu10OqPIi2TxLpbmA6Vic";
+    // let api = "AIzaSyCH9lmYZHiE4kFCu13k5P0wbMMeORc_llo"
+    // let api = "AIzaSyABblSYd87CTos9Q9Y492vjb0UqZXvy-h4"
+    
+
+    // channel url https://www.googleapis.com/youtube/v3/channels
+
+    
+
+
+    let username = JSON.parse(localStorage.getItem("name"));
+
+    if(username!==null){
+        let pname =document.getElementById("userName");
+        pname.style.color = "black"
+        pname.textContent = username;
+    }
+
+    function print(){
+        var input = document.getElementById("search").value;
+        console.log(input)
+        search()
+    }
+
+
+
+    var run;
+    function debounce(func, delay){
+        clearTimeout(run)
+
+        run = setTimeout(function(){
+            func();
+        }, delay)
+    }
+
+    async function search(){
+        let input = document.getElementById("search").value;
+        
+        let res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${input}&key=${api}&type=video&maxResults=30&part=snippet`);
+
+        let data = await res.json();
+
+        let array_of_videos = data.items;
+        console.log(array_of_videos)
+        showSearch(array_of_videos)
+        
+    }
+
+    function showSearch(arr){
+        console.log("Print Hello");
+        let bdiv = document.getElementById("sResult");
+        bdiv.style.display = "block"
+        arr.forEach(async (item, index)=>{
+            let logoUrl = await channel(item.snippet.channelId)
+            let div = document.createElement("div");
+            div.id = "stitle"
+            let title = document.createElement("p");
+            title.textContent = item.snippet.title;
+            div.append(title);
+            bdiv.append(div);
+            div.addEventListener("click", function(){
+                // console.log(item)
+                set(item , logoUrl);
+            })
+        })
+        
+        
+    }
+
+
+
+
+
+    async function searchmovies(){
+        console.log("searchMovies")
+        let input = document.getElementById("search").value;
+        
+        let res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${input}&key=${api}&type=video&maxResults=40&part=snippet`);
+
+        let data = await res.json();
+        console.log(data)
+
+        let array_of_videos = data.items;
+        console.log(array_of_videos)
+        display(array_of_videos)
+    }
+
+    searchdefault()
+
+    async function searchdefault(){
+        console.log("searchMovies")
+        
+        let res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=trendingsongs&key=${api}&type=video&maxResults=40&part=snippet`);
+
+        let data = await res.json();
+        console.log(data)
+
+        let array_of_videos = data.items;
+        console.log(array_of_videos)
+        display(array_of_videos)
+    }
+
+    function display(arr){
+        // console.log(arr)
+        let bdiv = document.getElementById("sResult");
+        bdiv.style.display = "none"
+        document.getElementById("temp").innerHTML = null
+        arr.forEach(async (item, index) => {
+             var curl = await channel(item.snippet.channelId)
+             
+            //  console.log(curl)
+
+            //  let boxdet = item;
+            //  console.log(boxdet)
+            let div = document.createElement("div");
+            div.id = "box"
+            div.addEventListener("click", function(){
+                // console.log(item)
+                set(item , curl);
+            })
+
+
+            div.innerHTML = `
+            <div id="box">
+            <img id="poster" src="${item.snippet.thumbnails.medium.url}" alt="">
+            <div class="dis">
+                <div>
+                    <img id="clogo" src="${curl}"  alt="">
+                </div>
+                <div id="name" >
+                    <p class = "name">${item.snippet.title}</p>
+                    <p class="cname">${item.snippet.channelTitle}</p>
+                </div>
+            </div>
+           
+        </div>`;
+        
+        document.getElementById("temp").append(div)
+        });
+    }
+
+    async function channel(id){
+        // console.log("Hello");
+        let res = await fetch(`https://www.googleapis.com/youtube/v3/channels?id=${id}&key=${api}&type=video&part=snippet`);
+
+        let data = await res.json()
+        console.log(data.items[0].snippet, "inside")
+        return data.items[0].snippet.thumbnails.medium.url;
+    }
+
+    let userbox = document.querySelector(".userbox").addEventListener("click", goto);
+    function goto(){
+        window.location.href = "login.html"
+    }
+
+    function set(item, curl){
+        // console.log(item, curl)
+        localStorage.setItem("video", JSON.stringify(item));
+        localStorage.setItem("curl", JSON.stringify(curl));
+        window.location.href = "videopage.html"
+    }
+</script>
