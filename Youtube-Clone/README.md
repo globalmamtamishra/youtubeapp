@@ -19,13 +19,13 @@ YouTube is an American online video sharing and social media platform owned by G
 # Images
 
 ### Home Page
-![image](https://github.com/rohitsingh-23/Youtube-Clone/blob/main/Ss/Home%20Page.png?raw=true)
+![image](https://github.com/globalmamtamishra/youtubeapp/blob/main/Youtube-Clone/Ss/Home%20Page.png)
 
 ### Search suggestion
-![image](https://github.com/rohitsingh-23/Youtube-Clone/blob/main/Ss/Suggestions.png?raw=true)
+![image](https://github.com/globalmamtamishra/youtubeapp/blob/main/Youtube-Clone/Ss/Suggestions.png)
 
 ### Search Result
-![image](https://github.com/rohitsingh-23/Youtube-Clone/blob/main/Ss/Search%20Result.png?raw=true)
+![image](https://github.com/globalmamtamishra/youtubeapp/blob/main/Youtube-Clone/Ss/Search%20Result.png)
 
 ### Search Result
-![image](https://github.com/rohitsingh-23/Youtube-Clone/blob/main/Ss/Video%20Page.png?raw=true)
+![image](https://github.com/globalmamtamishra/youtubeapp/blob/main/Youtube-Clone/Ss/Video%20Page.png)
